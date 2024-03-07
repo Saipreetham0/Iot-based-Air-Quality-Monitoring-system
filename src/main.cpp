@@ -154,18 +154,19 @@ void loop()
   // Classify air quality based on the sensor value
   if (MQ135_SENSOR_Value < cleanAirThreshold)
   {
-    Serial.println("Clean air");
+
+    Blynk.logEvent("clean_air");
   }
   else if (MQ135_SENSOR_Value < moderateAirThreshold)
   {
-    Serial.println("Moderate air quality");
+    Blynk.logEvent("moderate_air_quality");
   }
   else if (MQ135_SENSOR_Value < poorAirThreshold)
   {
-    Serial.println("Poor air quality");
+    Blynk.logEvent("poor_air_quality");
   }
   else
   {
-    Serial.println("Very poor air quality");
+    Blynk.logEvent("very_poor_air_quality");
   }
 }
